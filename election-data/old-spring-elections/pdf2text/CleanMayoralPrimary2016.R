@@ -5,7 +5,7 @@ library(tidyverse)
 library(tesseract)
 
 
-page28.raw <- pdf_text("election-data/pdf2text/Election54thBiennialReport 28OCR.pdf")
+page28.raw <- pdf_text("election-data/old-spring-elections/pdf2text/Election54thBiennialReport 28OCR.pdf")
 cat(page28.raw)
 page28 <- read_table(page28.raw, skip = 15, col_names = F) %>%
   unite(col = "string", sep = " ") %>%
@@ -18,7 +18,7 @@ page28 <- read_table(page28.raw, skip = 15, col_names = F) %>%
                             "bob donovan", "write-in", "extra"), convert = T) %>%
   select(-extra)
 
-page29.raw <- pdf_text("election-data/pdf2text/Election54thBiennialReport 29OCR.pdf")
+page29.raw <- pdf_text("election-data/old-spring-elections/pdf2text/Election54thBiennialReport 29OCR.pdf")
 cat(page29.raw)
 page29 <- read_table(page29.raw, skip = 17, col_names = F) %>%
   unite(col = "string", sep = " ") %>%
@@ -31,7 +31,7 @@ page29 <- read_table(page29.raw, skip = 17, col_names = F) %>%
                             "bob donovan", "write-in", "extra"), convert = T) %>%
   select(-extra)
 
-page30.raw <- pdf_text("election-data/pdf2text/Election54thBiennialReport 30OCR.pdf")
+page30.raw <- pdf_text("election-data/old-spring-elections/pdf2text/Election54thBiennialReport 30OCR.pdf")
 cat(page30.raw)
 page30 <- read_table(page30.raw, skip = 18, col_names = F) %>%
   unite(col = "string", sep = " ") %>%
@@ -44,7 +44,7 @@ page30 <- read_table(page30.raw, skip = 18, col_names = F) %>%
                             "bob donovan", "write-in", "extra"), convert = T) %>%
   select(-extra)
 
-page31.raw <- pdf_text("election-data/pdf2text/Election54thBiennialReport 31OCR.pdf")
+page31.raw <- pdf_text("election-data/old-spring-elections/pdf2text/Election54thBiennialReport 31OCR.pdf")
 cat(page31.raw)
 page31 <- read_table(page31.raw, skip = 17, col_names = F) %>%
   unite(col = "string", sep = " ") %>%
@@ -57,7 +57,7 @@ page31 <- read_table(page31.raw, skip = 17, col_names = F) %>%
                             "bob donovan", "write-in", "extra"), convert = T) %>%
   select(-extra)
 
-page32.raw <- pdf_text("election-data/pdf2text/Election54thBiennialReport 32OCR.pdf")
+page32.raw <- pdf_text("election-data/old-spring-elections/pdf2text/Election54thBiennialReport 32OCR.pdf")
 cat(page32.raw)
 page32 <- read_table(page32.raw, skip = 18, col_names = F) %>%
   unite(col = "string", sep = " ") %>%
@@ -70,7 +70,7 @@ page32 <- read_table(page32.raw, skip = 18, col_names = F) %>%
                             "bob donovan", "write-in", "extra"), convert = T) %>%
   select(-extra)
 
-page33.raw <- pdf_text("election-data/pdf2text/Election54thBiennialReport 33OCR.pdf")
+page33.raw <- pdf_text("election-data/old-spring-elections/pdf2text/Election54thBiennialReport 33OCR.pdf")
 cat(page33.raw)
 page33 <- read_table(page33.raw, skip = 16, col_names = F) %>%
   unite(col = "string", sep = " ") %>%
@@ -98,7 +98,7 @@ page33 <- read_table(page33.raw, skip = 16, col_names = F) %>%
          `write-in` = ifelse(ward == "0294", 1, `write-in`),
          `write-in` = ifelse(is.na(`write-in`), 0, `write-in`))
 
-page34.raw <- pdf_text("election-data/pdf2text/Election54thBiennialReport 34OCR.pdf")
+page34.raw <- pdf_text("election-data/old-spring-elections/pdf2text/Election54thBiennialReport 34OCR.pdf")
 cat(page34.raw)
 page34 <- tibble(ward = c("0325", "0326", "0327"),
                  ward_name = c("City of MilwaukeeWard325", "City of MilwaukeeWard326", "City of MilwaukeeWard327"),
