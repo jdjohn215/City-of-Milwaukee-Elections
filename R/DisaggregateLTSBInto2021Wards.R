@@ -10,7 +10,7 @@ ltsb.orig <- sf::st_read("~/Dropbox/Projects/SHPfiles/2012-2020_Election_Data_wi
   # filter for City of Milwauke
   filter(COUSUBFP == "53000") %>%
   tibble()
-write_csv(ltsb.orig, "election-data/LTSB_2012-20-election-data-with-2011-wards.rds")
+write_csv(ltsb.orig, "election-data/LTSB_2012-20-election-data-with-2011-wards.csv")
 
 # Disaggregate LTBS ward statistics into new wards based on VAP overlap
 ltsb.wards2021 <- ltsb.orig %>%
@@ -41,4 +41,4 @@ compare <- full_join(
   mutate(match = original == crosswalked)
 table(compare$match)
 
-write_csv(ltsb.wards2021, "election-data/LTSB_2012-20-election-data-with-2021-wards.rds")
+write_csv(ltsb.wards2021, "election-data/LTSB_2012-20-election-data-with-2021-wards.csv")
