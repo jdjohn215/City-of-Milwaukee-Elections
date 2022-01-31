@@ -129,4 +129,4 @@ all.races <- bind_rows(mget(ls())) %>%
   mutate(across(where(is.character), str_to_upper)) %>%
   arrange(year, race, office, ward)
 
-write_csv(all.races, "election-data/SpringElectionsIn2011Wards.csv")
+write_csv(all.races, "election-data/SpringElectionsIn2012Wards.csv")

@@ -2,7 +2,7 @@ rm(list = ls())
 
 library(tidyverse)
 
-wards.crosswalk <- read_csv("census-data/Ward2011_to_Ward2021_ByVAP.csv")
+wards.crosswalk <- read_csv("census-data/Ward2012_to_Ward2021_ByVAP.csv")
 
 # available here: https://data-ltsb.opendata.arcgis.com/datasets/LTSB::2012-2020-election-data-with-2020-wards/about
 ltsb.orig <- sf::st_read("~/Dropbox/Projects/SHPfiles/2012-2020_Election_Data_with_2020_Wards/_2012_2020_Election_Datawith2020_Wards.shp") %>%
@@ -10,16 +10,16 @@ ltsb.orig <- sf::st_read("~/Dropbox/Projects/SHPfiles/2012-2020_Election_Data_wi
   # filter for City of Milwauke
   filter(COUSUBFP == "53000") %>%
   tibble()
-write_csv(ltsb.orig, "election-data/LTSB_2012-20-election-data-with-2011-wards.csv")
+write_csv(ltsb.orig, "election-data/LTSB_2012-20-election-data-with-2012-wards.csv")
 
 # Disaggregate LTBS ward statistics into new wards based on VAP overlap
 ltsb.wards2021 <- ltsb.orig %>%
   select(-c(1:15, 17:34), - starts_with("shape")) %>%
-  rename(ward2011 = STR_WARDS) %>%
-  mutate(ward2011 = as.numeric(ward2011)) %>%
-  pivot_longer(cols = -ward2011, values_to = "votes") %>%
+  rename(ward2012 = STR_WARDS) %>%
+  mutate(ward2012 = as.numeric(ward2012)) %>%
+  pivot_longer(cols = -ward2012, values_to = "votes") %>%
   inner_join(wards.crosswalk) %>%
-  mutate(adj_votes = votes * prop_of_2011) %>%
+  mutate(adj_votes = votes * prop_of_2012) %>%
   group_by(ward2021, name) %>%
   summarise(votes = sum(adj_votes)) %>%
   ungroup() %>%

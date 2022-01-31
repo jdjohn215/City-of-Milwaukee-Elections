@@ -20,4 +20,4 @@ mke.blocks <- pl.blocks %>%
   pl_select_standard() %>%
   inner_join(mke.vtd) %>%
   select(GEOID, vtd, ward, starts_with("pop"), starts_with("vap"))
-write_csv(mke.blocks, "census-data/MilwaukeeBlocks2020With2011WardAssignments.csv")
+write_csv(mke.blocks, "census-data/MilwaukeeBlocks2020With2012WardAssignments.csv")

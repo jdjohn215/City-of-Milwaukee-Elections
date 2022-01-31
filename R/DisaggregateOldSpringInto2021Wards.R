@@ -2,13 +2,13 @@ rm(list = ls())
 
 library(tidyverse)
 
-old.elections <- read_csv("election-data/SpringElectionsIn2011Wards.csv")
-crosswalk <- read_csv("census-data/Ward2011_to_Ward2021_ByVAP.csv")
+old.elections <- read_csv("election-data/SpringElectionsIn2012Wards.csv")
+crosswalk <- read_csv("census-data/Ward2012_to_Ward2021_ByVAP.csv")
 
 old.elections.in.2021.wards <- old.elections %>%
-  rename(ward2011 = ward) %>%
+  rename(ward2012 = ward) %>%
   inner_join(crosswalk) %>%
-  mutate(adj_ballots = ballots * prop_of_2011) %>%
+  mutate(adj_ballots = ballots * prop_of_2012) %>%
   group_by(ward2021, year, race, office, preference) %>%
   summarise(ballots = sum(adj_ballots)) %>%
   ungroup()
