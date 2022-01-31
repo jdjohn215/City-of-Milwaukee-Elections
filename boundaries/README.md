@@ -1,4 +1,4 @@
-# Documentation
+# Geographic boundary files
 
 For all files, the projected CRS is WGS 84 / Pseudo-Mercator (4326).
 
