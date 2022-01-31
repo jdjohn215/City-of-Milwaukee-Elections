@@ -33,4 +33,4 @@ mke.blocks <- mke.blocks <- mke.blocks %>%
          SLDU = as.numeric(SLDU)) %>%
   select(GEOID, SLDL, SLDU, vtd, aldermanic_2012, ward, everything())
 
-write_csv(mke.blocks, "census-data/MilwaukeeBlocks2020With2012WardAssignments.csv")
+write_csv(mke.blocks, "census-data/MilwaukeeBlocks2020.csv")
