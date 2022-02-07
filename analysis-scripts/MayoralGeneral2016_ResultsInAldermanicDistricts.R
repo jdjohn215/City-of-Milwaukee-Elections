@@ -30,3 +30,5 @@ sum(totals.count$ald_total)
 sum(totals.count$`BOB DONOVAN`)
 sum(totals.count$`TOM BARRETT`)
 sum(totals.count$`WRITE-IN`)
+
+write_csv("analysis-files/MayoralGeneral2016InAldermanicDistricts.csv")
