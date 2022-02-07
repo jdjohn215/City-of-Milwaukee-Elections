@@ -17,9 +17,10 @@ totals <- orig %>%
   ungroup() %>%
   group_by(aldermanic_2012) %>%
   mutate(ald_total = sum(votes)) %>%
-  mutate(pct = round((votes/ald_total)*100))
+  mutate(pct = round((votes/ald_total)*100)) %>%
+  arrange(aldermanic_2012, preference)
 
-totals %>%
+totals.pct <- totals %>%
   select(-votes) %>%
   pivot_wider(names_from = preference, values_from = pct)
 totals.count <- totals %>%
@@ -31,4 +32,4 @@ sum(totals.count$`BOB DONOVAN`)
 sum(totals.count$`TOM BARRETT`)
 sum(totals.count$`WRITE-IN`)
 
-write_csv("analysis-files/MayoralGeneral2016InAldermanicDistricts.csv")
+write_csv(totals, "analysis-files/MayoralGeneral2016InAldermanicDistricts.csv")
