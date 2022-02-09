@@ -236,7 +236,8 @@ dist15 <- read_table(primary2004[15], skip = 11, col_names = F, n_max = 20) %>%
   mutate(district = 15) %>%
   # munge
   mutate(ward = str_replace(ward, "3CQ", "300"),
-         ward = str_replace(ward, "3G3", "303")) %>%
+         ward = str_replace(ward, "3G3", "303"),
+         last_num = replace(last_num, ward == "305", "281")) %>%
   select(district, ward, everything())
 
 all.pages <- bind_rows(dist1, dist2, dist3, dist4, dist5, dist6, dist7,
