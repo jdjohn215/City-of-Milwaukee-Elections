@@ -129,14 +129,14 @@ mayor.2012 <- read_csv("election-data/old-spring-elections/mayor-city-of-milwauk
   mutate(office = "mayor",
          race = "general",
          year = 2012) %>%
-  mutate(preference = str_to_upper(str_remove_all(preference, "_")),
+  mutate(preference = str_to_upper(str_replace_all(preference, "_", " ")),
          ward = as.numeric(ward))
 mayor.2012.primary <- read_csv("election-data/old-spring-elections/mayor-city-of-milwaukee_2012primary.csv") %>%
   pivot_longer(cols = -ward, names_to = "preference", values_to = "ballots") %>%
   mutate(office = "mayor",
          race = "primary",
          year = 2012) %>%
-  mutate(preference = str_to_upper(str_remove_all(preference, "_")),
+  mutate(preference = str_to_upper(str_replace_all(preference, "_", " ")),
          ward = as.numeric(ward))
 
 # combine all races
