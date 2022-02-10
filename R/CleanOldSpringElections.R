@@ -122,6 +122,22 @@ scowis.2016 <- read_csv("election-data/old-spring-elections/justice-of-the-supre
          year = 2016) %>%
   rename(ward = Ward)
 
+################################################################################
+# 2012 races
+mayor.2012 <- read_csv("election-data/old-spring-elections/mayor-city-of-milwaukee_2012general.csv") %>%
+  pivot_longer(cols = -ward, names_to = "preference", values_to = "ballots") %>%
+  mutate(office = "mayor",
+         race = "general",
+         year = 2012) %>%
+  mutate(preference = str_to_upper(str_remove_all(preference, "_")),
+         ward = as.numeric(ward))
+mayor.2012.primary <- read_csv("election-data/old-spring-elections/mayor-city-of-milwaukee_2012primary.csv") %>%
+  pivot_longer(cols = -ward, names_to = "preference", values_to = "ballots") %>%
+  mutate(office = "mayor",
+         race = "primary",
+         year = 2012) %>%
+  mutate(preference = str_to_upper(str_remove_all(preference, "_")),
+         ward = as.numeric(ward))
 
 # combine all races
 all.races <- bind_rows(mget(ls())) %>%
