@@ -13,3 +13,4 @@ map1 <- tm_shape(base1, raster.downsample = F) +
   tm_fill(col = "MAP_COLORS", alpha = 0.5) +
   tm_text(text = "aldermanic_2022", size = 2)
 tmap_save(map1, "reference-maps/AldermanicDistricts2022.pdf", height = 17)
+tmap_save(map1, "reference-maps/AldermanicDistricts2022.png", height = 17)
